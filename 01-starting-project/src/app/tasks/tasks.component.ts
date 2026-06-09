@@ -1,4 +1,5 @@
 import { Component, input, Input } from '@angular/core';
+import { UserObject } from '../utility/types';
 
 @Component({
   selector: 'app-tasks',
@@ -8,9 +9,6 @@ import { Component, input, Input } from '@angular/core';
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
-  userObj = input.required<{
-    id: string;
-    name: string;
-    avatar: string;
-  }>();
+  userObj = input<UserObject | undefined>();
+  // @Input() userObg: UserObject | undefined;
 }
