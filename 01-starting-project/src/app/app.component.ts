@@ -15,11 +15,7 @@ import { UserObject } from './utility/types';
 export class AppComponent {
   users = DUMMY_USERS;
 
-  userObject: UserObject = {
-    id: '',
-    name: '',
-    avatar: '',
-  };
+  userObject?: UserObject;
   tmpUser = { id: '01', name: 'Devansh', avatar: 'testAvatar' };
 
   onSelectUser(User: UserObject): void {

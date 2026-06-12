@@ -3,19 +3,16 @@
 <!-- <app-user></app-user> -->
 <main>
   <ul id="users">
-    <li>
-      <app-user [user]="users[0]" (custSelect)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[1]" (custSelect)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[2]" (custSelect)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[3]" (custSelect)="onSelectUser($event)" />
-    </li>
+    @for (user of users; track user.id) {
+      <li>
+        <app-user [user]="user" (custSelect)="onSelectUser($event)" />
+      </li>
+    }
   </ul>
 
-  <app-tasks [userObj]="userObject"></app-tasks>
+  @if (userObject) {
+    <app-tasks [userObj]="userObject"></app-tasks>
+  } @else {
+    <p>Please select a user</p>
+  }
 </main>
